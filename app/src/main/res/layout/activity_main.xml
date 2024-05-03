@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray"
+    tools:context=".MainActivity">
+
+    <!-- BOTTOM TOOLBAR -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/bar_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- TOP BAR -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="800dp"
+        android:layout_marginEnd="800dp"
+        android:background="@drawable/rounded_toolbar"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck,VisualLintBounds">
+
+        <TextClock
+            android:id="@+id/textClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/goldman_bold"
+            android:format24Hour=""
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- LEFT SIDE SCREEN -->
+    <LinearLayout
+        android:id="@+id/leftLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/layout_color"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/rightLayout"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+    </LinearLayout>
+
+    <!-- RIGHT SIDE SCREEN -->
+    <LinearLayout
+        android:id="@+id/rightLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/layout_color"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.6"
+        app:layout_constraintStart_toEndOf="@+id/leftLayout"
+        app:layout_constraintTop_toBottomOf="@+id/topBar">
+    </LinearLayout>
+
+    <!-- VEHICLE BUTTON -->
+    <LinearLayout
+        android:id="@+id/vehicleButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/volumeButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="0.25"
+        app:layout_constraintStart_toStartOf="@+id/leftLayout"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/vehicle"
+            android:src="@drawable/vehicle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/vehicle"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- VOLUME BUTTON -->
+    <LinearLayout
+        android:id="@+id/volumeButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/vehicleButton"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/camerasButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintHorizontal_weight="0.25"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/volume"
+            android:src="@drawable/volume" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/volume"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- CAMERA BUTTON -->
+    <LinearLayout
+        android:id="@+id/camerasButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/volumeButton"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/coolingButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintHorizontal_weight="0.25"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/cameras"
+            android:src="@drawable/camera" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/cameras"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <!-- COOLING BUTTON -->
+    <LinearLayout
+        android:id="@+id/coolingButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintStart_toEndOf="@+id/camerasButton"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="@+id/leftLayout"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintHorizontal_weight="0.25"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/cooling"
+            android:src="@drawable/cooling" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/cooling"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- PHONE BUTTON -->
+    <LinearLayout
+        android:id="@+id/phoneButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toStartOf="@+id/rightLayout"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/naviButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="0.2"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/phone"
+            android:src="@drawable/phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/phone"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- NAVIGATION BUTTON -->
+    <LinearLayout
+        android:id="@+id/naviButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/phoneButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/appsButton"
+        app:layout_constraintHorizontal_weight="0.2"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/navi"
+            android:src="@drawable/navigation" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/navi"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- APPLICATION BUTTON -->
+    <LinearLayout
+        android:id="@+id/appsButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/naviButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/musicButton"
+        app:layout_constraintHorizontal_weight="0.2"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/apps"
+            android:src="@drawable/application" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/apps"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- MUSIC BUTTON -->
+    <LinearLayout
+        android:id="@+id/musicButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/appsButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toStartOf="@+id/comfortButton"
+        app:layout_constraintHorizontal_weight="0.2"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/music"
+            android:src="@drawable/music" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/music"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/comfortButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="200dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
+        app:layout_constraintStart_toEndOf="@+id/musicButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="@+id/rightLayout"
+        app:layout_constraintHorizontal_weight="0.2"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/button_background"
+            android:contentDescription="@string/comfort"
+            android:src="@drawable/comfort" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/goldman_normal"
+            android:text="@string/comfort"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <!-- COMFORT BUTTON -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
