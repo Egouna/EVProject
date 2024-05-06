@@ -33,13 +33,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="VisualLintBounds" >
+        tools:ignore="VisualLintBounds,TextSizeCheck">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/topBarFragment"
             android:name="com.example.evproject.TopBarFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_top_bar" />
     </FrameLayout>
 
     <!-- LEFT SIDE SCREEN -->
