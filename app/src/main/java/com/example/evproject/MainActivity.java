@@ -1,4 +1,3 @@
-// File path: /src/com/example/evproject/MainActivity.java
 package com.example.evproject;
 
 import android.os.Bundle;
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout naviButton = findViewById(R.id.naviButton);
 
-        // Set up the navigation fragment toggle
         naviFragment = new navigationFragment();
         naviButton.setOnClickListener(view -> toggleNavigationFragment());
     }
@@ -38,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private void toggleNavigationFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (isNavigationFragmentVisible) {
-            // Hide the navigation fragment
             transaction.remove(naviFragment);
             isNavigationFragmentVisible = false;
         } else {
-            // Show the navigation fragment
             transaction.replace(R.id.rightLayout, naviFragment);
             isNavigationFragmentVisible = true;
         }

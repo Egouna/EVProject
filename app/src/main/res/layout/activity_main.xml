@@ -13,7 +13,7 @@
     <FrameLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="150dp"
         android:background="@color/bar_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,9 +25,9 @@
     <FrameLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="800dp"
-        android:layout_marginEnd="800dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="700dp"
+        android:layout_marginEnd="700dp"
         android:background="@drawable/rounded_toolbar"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,16 +48,23 @@
         android:id="@+id/leftLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/layout_color"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toStartOf="@+id/rightLayout"
         app:layout_constraintHorizontal_weight="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBar">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/leftLayoutFragment"
+            android:name="com.example.evproject.VehicleFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_vehicle"/>
     </FrameLayout>
 
     <!-- RIGHT SIDE SCREEN -->
@@ -65,10 +72,10 @@
         android:id="@+id/rightLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/layout_color"
         app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,8 +90,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -98,7 +105,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/vehicle"
             android:src="@drawable/vehicle"
@@ -110,7 +117,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/vehicle"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -120,8 +127,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -134,7 +141,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/volume"
             android:src="@drawable/volume"
@@ -146,7 +153,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/volume"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -156,8 +163,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -170,7 +177,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/cameras"
             android:src="@drawable/camera"
@@ -182,7 +189,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/cameras"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
 
     </LinearLayout>
@@ -193,9 +200,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="128dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         app:layout_constraintStart_toEndOf="@+id/camerasButton"
@@ -207,7 +214,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/cooling"
             android:src="@drawable/cooling"
@@ -219,7 +226,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/cooling"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -229,8 +236,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="225dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
@@ -244,7 +251,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/phone"
             android:src="@drawable/phone"
@@ -256,7 +263,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/phone"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -266,9 +273,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:clickable="true"
         android:focusable="true"
         android:gravity="center_horizontal"
@@ -282,7 +289,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/navi"
             android:src="@drawable/navigation"
@@ -294,7 +301,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/navi"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -304,8 +311,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
@@ -318,7 +325,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/apps"
             android:src="@drawable/application"
@@ -330,7 +337,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/apps"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -340,8 +347,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="12dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
@@ -354,7 +361,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/music"
             android:src="@drawable/music"
@@ -366,7 +373,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/music"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
@@ -376,9 +383,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="225dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
@@ -390,7 +397,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="92dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/comfort"
             android:src="@drawable/comfort"
@@ -402,7 +409,7 @@
             android:fontFamily="@font/goldman_normal"
             android:text="@string/comfort"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="20sp"
             tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
