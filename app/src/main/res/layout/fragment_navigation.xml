@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/map_rounded_corners"
-        android:padding="2dp"> <!-- Adjust padding to your preference -->
+        android:padding="2dp"
+        tools:ignore="UselessParent"> <!-- Adjust padding to your preference -->
 
         <fragment
             android:id="@+id/map"

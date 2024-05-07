@@ -267,15 +267,17 @@
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
         android:layout_marginEnd="12dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/bottomBar"
-        app:layout_constraintStart_toEndOf="@+id/phoneButton"
-        app:layout_constraintTop_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toStartOf="@+id/appsButton"
         app:layout_constraintHorizontal_weight="0.2"
+        app:layout_constraintStart_toEndOf="@+id/phoneButton"
+        app:layout_constraintTop_toTopOf="@+id/bottomBar"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView

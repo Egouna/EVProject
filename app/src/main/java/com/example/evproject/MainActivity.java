@@ -1,15 +1,20 @@
+// File path: /src/com/example/evproject/MainActivity.java
 package com.example.evproject;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
+
+    private navigationFragment naviFragment;
+    private boolean isNavigationFragmentVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +28,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        if (savedInstanceState == null) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.rightLayout, new navigationFragment());
-            transaction.commit();
+        LinearLayout naviButton = findViewById(R.id.naviButton);
+
+        // Set up the navigation fragment toggle
+        naviFragment = new navigationFragment();
+        naviButton.setOnClickListener(view -> toggleNavigationFragment());
+    }
+
+    private void toggleNavigationFragment() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (isNavigationFragmentVisible) {
+            // Hide the navigation fragment
+            transaction.remove(naviFragment);
+            isNavigationFragmentVisible = false;
+        } else {
+            // Show the navigation fragment
+            transaction.replace(R.id.rightLayout, naviFragment);
+            isNavigationFragmentVisible = true;
         }
+        transaction.commit();
     }
 }
