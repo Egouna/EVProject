@@ -43,7 +43,7 @@
             tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 
-    <!-- Clickable TextViews for P, R, N, D -->
+    <!-- P, R, N, D -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
