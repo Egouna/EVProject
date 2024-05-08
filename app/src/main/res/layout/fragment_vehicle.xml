@@ -1,53 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/layout_color"
-    android:orientation="horizontal"
-    tools:visibility="visible">
+    tools:context=".VehicleFragment">
 
     <!-- SPEED -->
     <LinearLayout
-        android:id="@+id/speedometer"
-        android:layout_width="500dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="1000dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="1000dp"
-        android:layout_marginBottom="500dp"
+        android:id="@+id/speedoMeter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
         android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="VisualLintBounds">
+        tools:ignore="UselessParent,VisualLintBounds">
 
         <TextView
             android:id="@+id/speedValue"
-            android:layout_width="match_parent"
-            android:layout_height="168dp"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
             android:fontFamily="@font/goldman_bold"
             android:gravity="center"
             android:text="100"
             android:textColor="@color/black"
-            android:textSize="150sp"
+            android:textSize="100sp"
             android:textStyle="bold"
-            tools:ignore="HardcodedText,TextSizeCheck,VisualLintBounds" />
+            tools:ignore="HardcodedText,TextContrastCheck,TextSizeCheck" />
 
         <TextView
             android:id="@+id/speedType"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/goldman"
-            android:gravity="center|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="kmh"
-            android:textColor="@color/black"
-            android:textSize="50sp"
+            android:fontFamily="@font/goldman"
             android:textStyle="normal"
-            tools:ignore="HardcodedText,VisualLintBounds" />
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            tools:ignore="HardcodedText,TextContrastCheck" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Clickable TextViews for P, R, N, D -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
+        android:layout_marginTop="120dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        tools:ignore="VisualLintBounds,HardcodedText">
+
+        <TextView
+            android:id="@+id/gearP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/goldman"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:text="P"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gearR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/goldman"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:text="R"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gearN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/goldman"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:text="N"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gearD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/goldman_bold"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:text="D"
+            android:textColor="@android:color/black"
+            android:textSize="48sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- BLACK SEPARATOR LINE -->
+    <View
+        android:id="@+id/separatorLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="200dp"
+        android:background="@android:color/black" />
+
+    <!-- TOP ICONS -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="230dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Left Turn Light -->
+        <ImageView
+            android:id="@+id/leftTurnLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="32dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/turnleft"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,VisualLintBounds" />
+
+        <!-- Low Beam Light -->
+        <ImageView
+            android:id="@+id/lowBeamLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/lowbeam_border"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lowbeam"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <!-- "READY" TextView -->
+        <TextView
+            android:id="@+id/readyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@drawable/ready_border"
+            android:fontFamily="@font/goldman"
+            android:text="READY"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText,TextContrastCheck" />
+
+        <!-- High Beam Light -->
+        <ImageView
+            android:id="@+id/highBeamLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/highbeam_border"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/highbeam"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <!-- Right Turn Light -->
+        <ImageView
+            android:id="@+id/rightTurnLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="32dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/turnright"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck,VisualLintBounds" />
+    </LinearLayout>
+
+    <!-- LEFT SIDE ICONS -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="340dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <!-- General Faulty -->
+        <ImageView
+            android:id="@+id/generalfaultyLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/icon_bg"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/generalfault"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <!-- Electrical Fault -->
+        <ImageView
+            android:id="@+id/electricalfaultLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/icon_bg"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/electricalfault"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <!-- Limited Power -->
+        <ImageView
+            android:id="@+id/limitedpowerLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/icon_bg"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/limitedpower"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <!-- RIGHT SIDE ICONS -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="340dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <!-- Low Battery -->
+        <ImageView
+            android:id="@+id/lowbatteryLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/icon_bg"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/lowbattery"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+        <!-- Pedestrian Alert -->
+        <ImageView
+            android:id="@+id/pedestrianalertLight"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/icon_bg"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/pedestrianalert"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+    <!-- CAR VIEW -->
+    <ImageButton
+        android:id="@+id/carDoorState"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center|bottom"
+        android:src="@drawable/bothdoor"
+        android:background="@drawable/door_background"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="72dp"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <!-- SEATBELT LIGHTS -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <!-- Driver Seatbelt -->
+        <ImageView
+            android:id="@+id/driverSeatbeltLight"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/seatbelt"
+            android:background="@drawable/seat_bg"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+
+        <!-- Passenger Seatbelt -->
+        <ImageView
+            android:id="@+id/passengerSeatbeltLight"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/seatbelt"
+            android:background="@drawable/seat_bg"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,ImageContrastCheck" />
+    </LinearLayout>
+
+</FrameLayout>

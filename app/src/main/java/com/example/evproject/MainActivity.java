@@ -2,7 +2,6 @@ package com.example.evproject;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -11,9 +10,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
-
     private navigationFragment naviFragment;
+    private VehicleFragment vehicleFragment;
     private boolean isNavigationFragmentVisible = false;
+    private boolean isVehicleFragmentVisible = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +28,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         LinearLayout naviButton = findViewById(R.id.naviButton);
+        LinearLayout vehicleButton = findViewById(R.id.vehicleButton);
 
         naviFragment = new navigationFragment();
+        vehicleFragment = new VehicleFragment();
+
         naviButton.setOnClickListener(view -> toggleNavigationFragment());
+        vehicleButton.setOnClickListener(view -> toggleVehicleFragment());
     }
 
     private void toggleNavigationFragment() {
@@ -41,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
         } else {
             transaction.replace(R.id.rightLayout, naviFragment);
             isNavigationFragmentVisible = true;
+        }
+        transaction.commit();
+    }
+
+    private void toggleVehicleFragment() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (isVehicleFragmentVisible) {
+            transaction.remove(vehicleFragment);
+            isVehicleFragmentVisible = false;
+        } else {
+            transaction.replace(R.id.leftLayout, vehicleFragment);
+            isVehicleFragmentVisible = true;
         }
         transaction.commit();
     }
