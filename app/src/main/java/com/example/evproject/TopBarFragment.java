@@ -1,4 +1,3 @@
-// File: TopBarFragment.java
 package com.example.evproject;
 
 import android.annotation.SuppressLint;
@@ -21,6 +20,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+/**
+ * TopBarFragment displays the top bar of the application containing battery level and temperature information.
+ * It implements SensorEventListener to listen for temperature sensor events.
+ */
 public class TopBarFragment extends Fragment implements SensorEventListener {
 
     private ProgressBar batteryProgressBar;
@@ -29,6 +32,14 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor temperatureSensor;
 
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,6 +55,9 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
         return rootView;
     }
 
+    /**
+     * Updates the battery level progress bar and text view.
+     */
     @SuppressLint("SetTextI18n")
     private void updateBatteryLevel() {
         Context context = getContext();
@@ -62,6 +76,9 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
         }
     }
 
+    /**
+     * Sets up the temperature sensor.
+     */
     @SuppressLint("SetTextI18n")
     private void setupTemperatureSensor() {
         Context context = getContext();
@@ -77,6 +94,11 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
         }
     }
 
+    /**
+     * Called when sensor values have changed.
+     *
+     * @param event The SensorEvent object containing sensor data.
+     */
     @SuppressLint("DefaultLocale")
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -86,11 +108,21 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
         }
     }
 
+    /**
+     * Called when the accuracy of a sensor has changed.
+     *
+     * @param sensor   The Sensor object.
+     * @param accuracy The new accuracy of this sensor.
+     */
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Not used in this example
     }
 
+    /**
+     * Called when the fragment is no longer resumed.
+     * Unregisters the temperature sensor listener.
+     */
     @Override
     public void onPause() {
         super.onPause();
@@ -99,6 +131,10 @@ public class TopBarFragment extends Fragment implements SensorEventListener {
         }
     }
 
+    /**
+     * Called when the fragment is visible and actively running.
+     * Registers the temperature sensor listener.
+     */
     @Override
     public void onResume() {
         super.onResume();

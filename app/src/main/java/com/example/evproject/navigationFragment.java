@@ -15,9 +15,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * navigationFragment is responsible for displaying the map and managing map-related functionalities.
+ * This fragment implements OnMapReadyCallback to handle the Google Map when it is ready to be used.
+ */
 public class navigationFragment extends Fragment implements OnMapReadyCallback {
 
 
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -36,6 +48,12 @@ public class navigationFragment extends Fragment implements OnMapReadyCallback {
         return view;
     }
 
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     *
+     * @param googleMap The GoogleMap object representing the map.
+     */
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         LatLng taltech = new LatLng(59.395092, 24.671672);

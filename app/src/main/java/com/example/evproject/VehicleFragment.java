@@ -20,16 +20,22 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * FRAGMENT REPRESENTING THE VEHICLE INTERFACE
+ */
 public class VehicleFragment extends Fragment {
+    // Constants
     private static final int MIN_SPEED = 50;
     private static final int MAX_SPEED = 100;
     private static final int SPEED_INCREMENT = 1;
     private static final int SERVER_PORT = 12345;
 
+    // Speed variables
     private int currentSpeed = MIN_SPEED;
     private boolean increasing = true;
     private boolean isKmh = true;
 
+    // UI elements
     private TextView speedValue;
     private TextView speedType;
     private TextView readyText;
@@ -39,6 +45,7 @@ public class VehicleFragment extends Fragment {
     private ImageView generalFaultLight, electricalFaultLight, limitedPowerLight, lowBatteryLight, pedestrianAlertLight;
     private ImageButton carDoorState;
 
+    // Handlers for updating UI
     private final Handler handler = new Handler();
     private final Runnable speedUpdater = new Runnable() {
         @Override
@@ -61,6 +68,7 @@ public class VehicleFragment extends Fragment {
         }
     };
 
+    // Variables for turn signal blinking
     private boolean blinkingLeft, blinkingRight, blinkingBoth;
     private final Runnable blinkerUpdater = new Runnable() {
         @Override
@@ -82,6 +90,14 @@ public class VehicleFragment extends Fragment {
         }
     };
 
+    /**
+     * Creates and returns the view hierarchy associated with the fragment.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container          The parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     * @return The View for the fragment's UI, or null.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -122,6 +138,9 @@ public class VehicleFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Called when the fragment's view is destroyed.
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -129,15 +148,24 @@ public class VehicleFragment extends Fragment {
         handler.removeCallbacks(blinkerUpdater);
     }
 
+    /**
+     * Updates the displayed speed value.
+     */
     private void updateSpeedDisplay() {
         speedValue.setText(String.valueOf(currentSpeed));
     }
 
+    /**
+     * Toggles the speed type between km/h and mph.
+     */
     private void toggleSpeedType() {
         isKmh = !isKmh;
         speedType.setText(isKmh ? "kmh" : "mph");
     }
 
+    /**
+     * Initializes gear display.
+     */
     private void initializeGears() {
         gearP.setTextColor(getResources().getColor(R.color.blue));
         gearR.setTextColor(getResources().getColor(android.R.color.black));
@@ -145,16 +173,25 @@ public class VehicleFragment extends Fragment {
         gearD.setTextColor(getResources().getColor(android.R.color.black));
     }
 
+    /**
+     * Initializes beam lights.
+     */
     private void initializeBeams() {
         lowBeamLight.setVisibility(View.INVISIBLE);
         highBeamLight.setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Initializes turn signals.
+     */
     private void initializeTurnSignals() {
         leftTurnLight.setVisibility(View.INVISIBLE);
         rightTurnLight.setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Initializes fault lights.
+     */
     private void initializeFaults() {
         generalFaultLight.setVisibility(View.INVISIBLE);
         electricalFaultLight.setVisibility(View.INVISIBLE);
@@ -163,10 +200,19 @@ public class VehicleFragment extends Fragment {
         pedestrianAlertLight.setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Initializes car door state.
+     */
     private void initializeCarDoors() {
         carDoorState.setImageResource(R.drawable.bothdoor);
     }
 
+
+    /**
+     * Sets the color of the selected gear.
+     *
+     * @param gear The selected gear.
+     */
     private void setGearColor(String gear) {
         gearP.setTextColor(getResources().getColor(android.R.color.black));
         gearR.setTextColor(getResources().getColor(android.R.color.black));
@@ -189,6 +235,11 @@ public class VehicleFragment extends Fragment {
         }
     }
 
+    /**
+     * Toggles the visibility of a view.
+     *
+     * @param view The view to toggle.
+     */
     private void toggleVisibility(View view) {
         if (view.getVisibility() == View.VISIBLE) {
             view.setVisibility(View.INVISIBLE);
@@ -197,24 +248,36 @@ public class VehicleFragment extends Fragment {
         }
     }
 
+    /**
+     * Starts left turn signal blinking.
+     */
     private void startBlinkingLeft() {
         stopAllBlinking();
         blinkingLeft = true;
         handler.post(blinkerUpdater);
     }
 
+    /**
+     * Starts right turn signal blinking.
+     */
     private void startBlinkingRight() {
         stopAllBlinking();
         blinkingRight = true;
         handler.post(blinkerUpdater);
     }
 
+    /**
+     * Starts both turn signals blinking.
+     */
     private void startBlinkingBoth() {
         stopAllBlinking();
         blinkingBoth = true;
         handler.post(blinkerUpdater);
     }
 
+    /**
+     * Stops all turn signal blinking.
+     */
     private void stopAllBlinking() {
         blinkingLeft = false;
         blinkingRight = false;
@@ -224,6 +287,11 @@ public class VehicleFragment extends Fragment {
         rightTurnLight.setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Sets the car door state.
+     *
+     * @param door The car door state: "1" for left door, "2" for right door, "3" for both doors.
+     */
     private void setCarDoorState(String door) {
         switch (door) {
             case "1":
@@ -238,6 +306,9 @@ public class VehicleFragment extends Fragment {
         }
     }
 
+    /**
+     * Starts the server socket for receiving commands.
+     */
     private void startServerSocket() {
         Thread serverThread = new Thread(() -> {
             try (ServerSocket serverSocket = new ServerSocket(SERVER_PORT)) {
